@@ -2,7 +2,7 @@
 html, body { margin: 0; padding: 0; }
 body { background: #2e2e2e; color: #fff; font-family: sans-serif; margin-bottom: 30px; }
 #root { padding: 0 15px; font-size: 16px; max-width: 800px; margin: 0 auto; }
-#root svg { width: 33.333333333%;  }
+#root svg { width: 75px;  }
 #root svg text, #root .foreign-object p {
   pointer-events: none;
   text-shadow: 1px 1px 5px #000;
@@ -19,13 +19,14 @@ body { background: #2e2e2e; color: #fff; font-family: sans-serif; margin-bottom:
   text-shadow: 1px 1px 20px #000;
 }
 
+
 #root .row:nth-child(1n+2) {
-  margin-top: -10.3%;
+  margin-top: -25px;
+}
+#root .row:nth-child(even) {
+  margin-left: 37px;
 }
 
-#root .row:nth-child(even) :first-child {
-  margin-left: 16.666666667%;
-}
 
 #root .umbrella {
   z-index: 10;

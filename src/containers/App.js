@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as CounterActions from '../actions/CounterActions';
 import Counter from '../components/Counter';
-import Footer from '../components/Footer';
+import Row from '../components/Row';
 import Hexagon from 'react-hexagon';
 
 /**
@@ -30,32 +30,15 @@ _onLeave(e){
     // debugger;
     // we can use ES6's object destructuring to effectively 'unpack' our props
     const { counter, actions } = this.props;
+
+    let rows = [];
+    for ( var i = 0; i < 3; i++ ){
+      rows.push(<Row row={i} board_width='7'></Row>);
+    }
+
     return (
       <div className='board'>
-        <div className='row' style={{width:'300px'}} >
-          <Hexagon className='hexagon-sample' style={{stroke: 'orange', width:'100px'}} backgroundImage="/img/react-hexagon.png"
-           onClick={() => {console.log("onClick");}}
-           onDoubleClick={() => {console.log("onDoubleClick");}}
-           onMouseEnter={() => {console.log("onMouseEnter");}}
-           onMouseLeave={() => {console.log("onMouseLeave");}}
-           onMouseMove={() => {console.log("onMouseMove");}}
-           hexProps={{
-              onMouseEnter: () => {console.log("onMouseEnter");},
-              onMouseLeave: () => {console.log("onMouseLeave");}
-            }}
-           />
-          <Hexagon className='hexagon-sample' style={{width:'33%', stroke: 'black'}}  />
-          <Hexagon className='hexagon-sample' style={{width:'33%', stroke: 'black'}}  />
-      </div>
-      <div className='row' style={{width:'300px'}} >
-        <Hexagon className='hexagon-sample' style={{width:'33%', stroke: 'black'}}  />
-        <Hexagon className='hexagon-sample' style={{width:'33%', stroke: 'black'}}  />
-      </div>
-      <div className='row' style={{width:'300px'}} >
-        <Hexagon className='hexagon-sample' style={{stroke: 'orange', width:'100px'}} backgroundImage="/img/react-hexagon.png"  onClick={this._onEnter} />
-        <Hexagon className='hexagon-sample' style={{width:'33%', stroke: 'black'}}  />
-        <Hexagon className='hexagon-sample' style={{width:'33%', stroke: 'black'}}  />
-      </div>
+        {rows}
     </div>
     );
   }
