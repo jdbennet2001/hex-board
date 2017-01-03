@@ -33,7 +33,17 @@ _onLeave(e){
     return (
       <div className='board'>
         <div className='row' style={{width:'300px'}} >
-          <Hexagon className='hexagon-sample' style={{stroke: 'orange', width:'100px'}} backgroundImage="/img/react-hexagon.png"  onClick={this._onClick} onMouseOver={this._onEnter}/>
+          <Hexagon className='hexagon-sample' style={{stroke: 'orange', width:'100px'}} backgroundImage="/img/react-hexagon.png"
+           onClick={() => {console.log("onClick");}}
+           onDoubleClick={() => {console.log("onDoubleClick");}}
+           onMouseEnter={() => {console.log("onMouseEnter");}}
+           onMouseLeave={() => {console.log("onMouseLeave");}}
+           onMouseMove={() => {console.log("onMouseMove");}}
+           hexProps={{
+              onMouseEnter: () => {console.log("onMouseEnter");},
+              onMouseLeave: () => {console.log("onMouseLeave");}
+            }}
+           />
           <Hexagon className='hexagon-sample' style={{width:'33%', stroke: 'black'}}  />
           <Hexagon className='hexagon-sample' style={{width:'33%', stroke: 'black'}}  />
       </div>
