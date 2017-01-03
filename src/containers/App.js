@@ -31,9 +31,12 @@ _onLeave(e){
     // we can use ES6's object destructuring to effectively 'unpack' our props
     const { counter, actions } = this.props;
 
+    const board_width=5;
+    const board_height=12;
+
     let rows = [];
-    for ( var i = 0; i < 3; i++ ){
-      rows.push(<Row row={i} board_width='7'></Row>);
+    for ( var i = 0; i < board_height; i++ ){
+      rows.push(<Row row={i} board_width={board_width}></Row>);
     }
 
     return (

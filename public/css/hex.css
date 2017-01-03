@@ -9,7 +9,7 @@ body {
 }
 
 #root { padding: 0 15px; font-size: 16px;  }
-#root svg { width: 75px;  }
+#root svg { width: 75px; margin-right: 40px }
 #root svg text, #root .foreign-object p {
   pointer-events: none;
   text-shadow: 1px 1px 5px #000;
@@ -28,10 +28,10 @@ body {
 
 
 #root .row:nth-child(1n+2) {
-  margin-top: -25px;
+  margin-top: -38px;
 }
 #root .row:nth-child(even) {
-  margin-left: 37px;
+  margin-left: 57px;
 }
 
 

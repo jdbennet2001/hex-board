@@ -20,8 +20,9 @@ export default class Row extends Component {
     for ( var i = 0; i < cells; i++ ){
 
       hexes.push(
-          <Hexagon className='hexagon-sample' style={{stroke: 'orange', width:'100px'}} backgroundImage="/img/react-hexagon.png"
+          <Hexagon className='hexagon-sample' style={{stroke: 'orange', width:'100px'}} backgroundImage="/img/react-hexagon-flattop.png"
            onClick={() => {console.log("onClick");}}
+           flatTop={true}
            hexProps={{
               onMouseEnter: () => {console.log("onMouseEnter");},
               onMouseLeave: () => {console.log("onMouseLeave");},
