@@ -9,7 +9,7 @@ body {
 }
 
 #root { padding: 0 15px; font-size: 16px;  }
-#root svg { width: 75px; margin-right: 40px }
+#root svg { width: 75px; margin-right: 38.5px }
 #root svg text, #root .foreign-object p {
   pointer-events: none;
   text-shadow: 1px 1px 5px #000;
