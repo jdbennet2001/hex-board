@@ -1,12 +1,16 @@
+import initialState from '../data/initialState.json';
+
+
 import { INCREMENT_COUNTER, DECREMENT_COUNTER } from '../constants/ActionTypes';
 
-export default function counter(state = 0, action) {
+
+export default function counter(state = {}, action) {
+
+  debugger;
   switch (action.type) {
-  case INCREMENT_COUNTER:
-    return state + 1;
-  case DECREMENT_COUNTER:
-    return state - 1;
-  default:
-    return state;
+    case '@@INIT':
+      return initialState;
+    default:
+      return initialState;
   }
 }
