@@ -1,4 +1,5 @@
 {
   "board_width": 7,
-  "board_height": 9
+  "board_height": 9,
+  "selected" : "1 - 1"
 }

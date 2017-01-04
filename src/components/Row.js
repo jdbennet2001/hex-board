@@ -16,16 +16,15 @@ export default class Row extends Component {
     var row_width = this.isEven(this.props.row) ? board_width : board_width -1;
     var cells = [];
     for ( let i = 0; i < row_width; i++ ){
-      cells.push( {row: this.props.row, column: i} );
+      cells.push( {row: this.props.row, column: i, key: this.props.row + ' - ' + i } );
     }
 
     var key = 'row: ' + this.props.row;
-    console.log( 'Row key is: ' + key );
 
     return (
-      <div className='row' key={key} >
+      <div className='row' >
         {cells.map((cell, index) => (
-          <Cell row={cell.row} column={cell.column}></Cell>
+          <Cell row={cell.row} column={cell.column} actions={this.props.actions} selected={this.props.selected} key={cell.key}></Cell>
         ))}
       </div>
     );

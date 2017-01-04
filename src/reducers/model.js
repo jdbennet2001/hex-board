@@ -1,9 +1,6 @@
 import initialState from '../data/initialState.json';
 
 
-import { INCREMENT_COUNTER, DECREMENT_COUNTER } from '../constants/ActionTypes';
-
-
 export default function model(state = {}, action) {
 
   var default_model = initialState;
@@ -11,6 +8,10 @@ export default function model(state = {}, action) {
   switch (action.type) {
     case '@@INIT':
       return initialState;
+    case 'MOUSE_ENTER':
+      return Object.assign({}, initialState, {selected: action.selected });
+    case 'MOUSE_EXIT' :
+      return Object.assign({}, initialState, {selected: action.selected});
     default:
       return initialState;
   }

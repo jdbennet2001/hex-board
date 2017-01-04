@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as CounterActions from '../actions/CounterActions';
+import * as CellActions from '../actions/CellActions';
 import Row from '../components/Row';
 
 /**
@@ -21,10 +21,12 @@ class App extends Component {
     //Create an array of ascending numbers (0...n) to represent the rows
     const rows = Array.from(Array(board_height).keys());
 
+    console.log( '..repaint');
+
     return (
       <div className='board'>
         {
-          rows.map( (row,index) => (<Row row={index} board_width={board_width}></Row>))
+          rows.map( (row,index) => (<Row row={index} actions={this.props.actions} board_width={board_width} selected={this.props.selected} key={index}></Row>))
         }
     </div>
     );
@@ -46,6 +48,7 @@ function mapStateToProps(state) {
   return {
     board_width: state.model.board_width,
     board_height: state.model.board_height,
+    selected: state.model.selected,
     all: state
   };
 }
@@ -60,7 +63,7 @@ function mapStateToProps(state) {
  */
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(CounterActions, dispatch)
+    actions: bindActionCreators(CellActions, dispatch)
   };
 }
 
