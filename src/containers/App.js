@@ -2,9 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as CounterActions from '../actions/CounterActions';
-import Counter from '../components/Counter';
 import Row from '../components/Row';
-import Hexagon from 'react-hexagon';
 
 /**
  * It is common practice to have a 'Root' container/component require our main App (this one).
@@ -13,37 +11,21 @@ import Hexagon from 'react-hexagon';
  */
 class App extends Component {
 
-_onClick(e){
-  console.log('..click');
-}
-
-_onEnter(e){
-  console.log('..enter');
-}
-
-
-_onLeave(e){
-  console.log( '..leave');
-}
-
   render() {
     // debugger;
     // we can use ES6's object destructuring to effectively 'unpack' our props
     //const { counter, actions } = this.props;
-
-    debugger;
-
     const board_width=this.props.board_width;
     const board_height=this.props.board_height;
 
-    let rows = [];
-    for ( var i = 0; i < board_height; i++ ){
-      rows.push(<Row row={i} board_width={board_width}></Row>);
-    }
+    //Create an array of ascending numbers (0...n) to represent the rows
+    const rows = Array.from(Array(board_height).keys());
 
     return (
       <div className='board'>
-        {rows}
+        {
+          rows.map( (row,index) => (<Row row={index} board_width={board_width}></Row>))
+        }
     </div>
     );
   }

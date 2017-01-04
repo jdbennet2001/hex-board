@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Hexagon from 'react-hexagon';
+import Cell from "./Cell";
 
 export default class Row extends Component {
 
@@ -11,34 +12,21 @@ export default class Row extends Component {
 
   render() {
 
-    debugger;
-    var row_number = this.props.row;
     var board_width = this.props.board_width;
-    var cells = this.isEven(row_number) ? board_width : board_width -1;
-
-    var hexes = [];
-    for ( var i = 0; i < cells; i++ ){
-
-      var key = row_number + '-' + i;
-
-      hexes.push(
-          <Hexagon className='hexagon-sample' key={key} style={{stroke: 'orange', width:'100px'}}
-           onClick={() => {console.log("onClick");}}
-           flatTop={true}
-           hexProps={{
-              onMouseEnter: () => {console.log("onMouseEnter: " + JSON.stringify({key}) );},
-              onMouseLeave: () => {console.log("onMouseLeave: " + {key} );},
-              style: {stroke: 'purple', width:'50px'}
-            }} >
-            <text x="50%" y="70%" style={{fill: 'black' }} >{key}</text>
-          </Hexagon>
-      );
+    var row_width = this.isEven(this.props.row) ? board_width : board_width -1;
+    var cells = [];
+    for ( let i = 0; i < row_width; i++ ){
+      cells.push( {row: this.props.row, column: i} );
     }
 
+    var key = 'row: ' + this.props.row;
+    console.log( 'Row key is: ' + key );
 
     return (
-      <div className='row'>
-        {hexes}
+      <div className='row' key={key} >
+        {cells.map((cell, index) => (
+          <Cell row={cell.row} column={cell.column}></Cell>
+        ))}
       </div>
     );
 }
