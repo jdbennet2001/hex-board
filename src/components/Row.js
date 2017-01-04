@@ -26,11 +26,12 @@ export default class Row extends Component {
            onClick={() => {console.log("onClick");}}
            flatTop={true}
            hexProps={{
-              onMouseEnter: () => {console.log("onMouseEnter: " + key );},
-              onMouseLeave: () => {console.log("onMouseLeave: " + key );},
+              onMouseEnter: () => {console.log("onMouseEnter: " + JSON.stringify({key}) );},
+              onMouseLeave: () => {console.log("onMouseLeave: " + {key} );},
               style: {stroke: 'purple', width:'50px'}
-            }}
-           />
+            }} >
+            <text x="50%" y="70%" style={{fill: 'black' }} >{key}</text>
+          </Hexagon>
       );
     }
 

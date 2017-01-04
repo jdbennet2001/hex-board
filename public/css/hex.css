@@ -10,20 +10,18 @@ body {
 
 #root { padding: 0 15px; font-size: 16px;  }
 #root svg { width: 75px; margin-right: 38.5px }
+
 #root svg text, #root .foreign-object p {
   pointer-events: none;
-  text-shadow: 1px 1px 5px #000;
   text-anchor: middle;
-  font-size: 50px;
+  font-size: 100px;
   font-weight: bold;
-  fill: rgba(255, 255, 255, 0.90);
-  color: rgba(255, 255, 255, 0.90);
+  fill: black;
   alignment-baseline: middle;
 }
 
 #root .text text, #root .text p {
   pointer-events: auto;
-  text-shadow: 1px 1px 20px #000;
 }
 
 
