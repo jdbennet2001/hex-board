@@ -29,10 +29,12 @@ _onLeave(e){
   render() {
     // debugger;
     // we can use ES6's object destructuring to effectively 'unpack' our props
-    const { counter, actions } = this.props;
+    //const { counter, actions } = this.props;
 
-    const board_width=5;
-    const board_height=12;
+    debugger;
+
+    const board_width=this.props.board_width;
+    const board_height=this.props.board_height;
 
     let rows = [];
     for ( var i = 0; i < board_height; i++ ){
@@ -48,7 +50,8 @@ _onLeave(e){
 }
 
 App.propTypes = {
-  counter: PropTypes.number.isRequired,
+  board_width: PropTypes.number.isRequired,
+  board_height: PropTypes.number.isRequired,
   actions: PropTypes.object.isRequired
 };
 
@@ -59,7 +62,9 @@ App.propTypes = {
  */
 function mapStateToProps(state) {
   return {
-    counter: state.counter
+    board_width: state.model.board_width,
+    board_height: state.model.board_height,
+    all: state
   };
 }
 

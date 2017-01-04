@@ -19,13 +19,15 @@ export default class Row extends Component {
     var hexes = [];
     for ( var i = 0; i < cells; i++ ){
 
+      var key = row_number + '-' + i;
+
       hexes.push(
-          <Hexagon className='hexagon-sample' style={{stroke: 'orange', width:'100px'}}
+          <Hexagon className='hexagon-sample' key={key} style={{stroke: 'orange', width:'100px'}}
            onClick={() => {console.log("onClick");}}
            flatTop={true}
            hexProps={{
-              onMouseEnter: () => {console.log("onMouseEnter");},
-              onMouseLeave: () => {console.log("onMouseLeave");},
+              onMouseEnter: () => {console.log("onMouseEnter: " + key );},
+              onMouseLeave: () => {console.log("onMouseLeave: " + key );},
               style: {stroke: 'purple', width:'50px'}
             }}
            />
