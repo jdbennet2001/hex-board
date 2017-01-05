@@ -11,6 +11,21 @@ import Row from '../components/Row';
  */
 class App extends Component {
 
+  /* Hightlight the cell underneath the cursor as the mouse moves around the screen */
+  _onMouseMove(event){
+
+    var target_text = event.target.textContent;
+    if (target_text && target_text.length < 6){
+        this.props.actions.mouse_enter_cell(event.target.textContent);
+    }
+
+  }
+
+  /* Mouse has left the game board. Clear the selected cell.*/
+  _onMouseLeave(event){
+    this.props.actions.mouse_exit_cell(null);
+  }
+
   render() {
     // debugger;
     // we can use ES6's object destructuring to effectively 'unpack' our props
@@ -23,8 +38,10 @@ class App extends Component {
 
     console.log( '..repaint');
 
+    var that = this;
+
     return (
-      <div className='board'>
+      <div className='board' onMouseMove={that._onMouseMove.bind(that)} onMouseLeave={that._onMouseLeave.bind(that)} >
         {
           rows.map( (row,index) => (<Row row={index} actions={this.props.actions} board_width={board_width} selected={this.props.selected} key={index}></Row>))
         }

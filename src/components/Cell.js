@@ -37,8 +37,9 @@ export default class Cell extends Component {
            onClick={() => {console.log("onClick");}}
            flatTop={true}
            hexProps={{
-              onMouseEnter: () => {console.log("onMouseEnter: " + key ); self._onEnter(key); },
-              onMouseLeave: () => {console.log("onMouseLeave: " + key );},
+              // onMouseEnter: () => {console.log("onMouseEnter: " + key ); self._onEnter(key); },
+              // onMouseMove: () => {console.log("onMouseMove: " + key ); self._onEnter(key); },
+              // onMouseLeave: () => {console.log("onMouseLeave: " + key );},
               style: {fill: 'purple'}
 
             }} >
