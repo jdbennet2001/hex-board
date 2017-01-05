@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Hexagon from 'react-hexagon';
+import Hexagon from './Hexagon-SVG/Hexagon';
 
 export default class Cell extends Component {
 
@@ -21,7 +21,7 @@ export default class Cell extends Component {
 
   render() {
 
-      var key = this.props.row + ' - ' + this.props.column;
+      var key = this.props.column + ' - ' + this.props.row;
       var highlight = (this.props.selected == key);
 
       var style = {stroke: 'orange',  width:'100px'};

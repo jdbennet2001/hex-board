@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import Hexagon from 'react-hexagon';
 import Cell from "./Cell";
 
 export default class Row extends Component {
