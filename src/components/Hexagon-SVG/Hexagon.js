@@ -1,5 +1,7 @@
-import React from 'react'
-import BackgroundDef from './BackgroundDef'
+import React from 'react';
+import BackgroundDef from './BackgroundDef';
+
+import Tank from './Tiles/Tank'
 
 const {number, string, object, node, func, bool} = React.PropTypes
 const hexRatio = 0.868217054
@@ -130,10 +132,14 @@ function Hexagon(props) {
       className={props.className}
       viewBox={viewBox}>
 
+
       {props.backgroundImage && <BackgroundDef id={bgId} {...props} />}
       {anchor || polygon}
 
       {props.children}
+
+      <Tank></Tank>
+
     </svg>
   )
 
