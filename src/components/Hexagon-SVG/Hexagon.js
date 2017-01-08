@@ -123,6 +123,21 @@ function Hexagon(props) {
 
   const anchor = props.href && <a xlinkHref={props.href} target={props.target}>{polygon}</a>
 
+/*
+      //Top
+      <line x1="125" y1="60" x2="375" y2="60" strokeWidth="25" stroke="black"/>
+      //Upper Left
+      <line x1="125" y1="60" x2="10" y2="260" strokeWidth="25" stroke="green"/>
+      //Lower Left
+      <line x1="10" y1="260" x2="125" y2="450" strokeWidth="25" stroke="purple"/>
+      //Bottom
+      <line x1="125" y1="440" x2="375" y2="440" strokeWidth="25" stroke="red"/>
+      //Lower Right
+      <line x1="375" y1="440" x2="475" y2="260" strokeWidth="25" stroke="pink"/>
+      //Upper Right
+      <line x1="375" y1="60" x2="490" y2="260" strokeWidth="25" stroke="blue"/>
+*/
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -134,8 +149,10 @@ function Hexagon(props) {
       {anchor || polygon}
 
       {props.children}
+
+
     </svg>
-  )
+  );
 
   function reduceBounds(extremes, point) {
     return {
