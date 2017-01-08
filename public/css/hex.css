@@ -6,6 +6,7 @@ body {
   font-family: sans-serif;
   margin-bottom: 30px;
   justify-content: flex-start !important;
+  width: 2250px
 }
 
 #root { padding: 0 15px; font-size: 16px;  }
@@ -28,7 +29,7 @@ body {
 #root .row:nth-child(1n+2) {
   margin-top: -38px;
 }
-#root .row:nth-child(even) {
+#root .row:nth-child(odd) {
   margin-left: 57px;
 }
 

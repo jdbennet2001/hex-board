@@ -14,11 +14,21 @@ class App extends Component {
   /* Hightlight the cell underneath the cursor as the mouse moves around the screen */
   _onMouseMove(event){
 
+    // var target_text = event.target.textContent;
+    // if (target_text && target_text.length < 6){
+    //     this.props.actions.mouse_enter_cell(event.target.textContent);
+    // }
+  }
+
+  /*
+   Select a cell.
+   */
+  _onClick(event){
     var target_text = event.target.textContent;
     if (target_text && target_text.length < 6){
         this.props.actions.mouse_enter_cell(event.target.textContent);
     }
-
+    console.log('onClick: ' + JSON.stringify(event) );
   }
 
   /* Mouse has left the game board. Clear the selected cell.*/
@@ -34,14 +44,14 @@ class App extends Component {
     const board_height=this.props.board_height;
 
     //Create an array of ascending numbers (0...n) to represent the rows
-    const rows = Array.from(Array(board_height).keys());
+    let rows = Array.from(Array(board_height).keys());
 
-    console.log( '..repaint');
+    console.log( '..repaint rows: ' + JSON.stringify(rows));
 
     var that = this;
 
     return (
-      <div className='board' onMouseMove={that._onMouseMove.bind(that)} onMouseLeave={that._onMouseLeave.bind(that)} >
+      <div className='board' onMouseMove={that._onMouseMove.bind(that)} onClick={that._onClick.bind(that)} onMouseLeave={that._onMouseLeave.bind(that)} >
         {
           rows.map( (row,index) => (<Row row={index} actions={this.props.actions} board_width={board_width} selected={this.props.selected} key={index}></Row>))
         }

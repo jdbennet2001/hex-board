@@ -12,13 +12,15 @@ export default class Row extends Component {
   render() {
 
     var board_width = this.props.board_width;
-    var row_width = this.isEven(this.props.row) ? board_width : board_width -1;
+    var row_width = this.isEven(this.props.row) ? board_width -1 : board_width;
     var cells = [];
-    for ( let i = 0; i < row_width; i++ ){
+    for ( let i = 1; i <= row_width; i++ ){
       cells.push( {row: this.props.row, column: i, key: this.props.row + ' - ' + i } );
     }
 
     var key = 'row: ' + this.props.row;
+
+    console.log( 'Render row: ' + key )
 
     return (
       <div className='row' >

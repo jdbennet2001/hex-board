@@ -1,5 +1,7 @@
 {
-  "board_width": 7,
-  "board_height": 9,
+  "board_width": 8,
+  "board_height": 43,
+  "barriers" : [],
+  "swamps" : [],
   "selected" : "1 - 1"
 }

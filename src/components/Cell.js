@@ -19,9 +19,20 @@ export default class Cell extends Component {
     console.log( '..leave');
   }
 
+  isEven(n) {
+    n = Number(n);
+    return n === 0 || !!(n && !(n%2));
+  }
+
   render() {
 
-      var key = this.props.column + ' - ' + this.props.row;
+      // var key = this.props.column + ' - ' + this.props.row;
+
+      var prefix = this.isEven(this.props.row) ? (this.props.column * 2) : this.props.column * 2 -1;
+      var suffix = Math.floor(this.props.row/2) +1;
+
+      const key = prefix + ' - ' + suffix;
+
       var highlight = (this.props.selected == key);
 
       var style = {stroke: 'orange',  width:'100px'};
